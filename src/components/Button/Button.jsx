@@ -1,18 +1,27 @@
+import { useState } from "react";
 import "./Button.css";
 
-const Button = (props) => {
+const Button = () => {
+  const [x, setX] = useState(0);
+
   const handleClick = () => {
-    alert("Button clicked!");
+    setX(x + 1);
   };
 
   return (
     <>
+      {/* BT1 */}
       {/* <button onClick={handleClick} className={`text-${props.color}`}>
         {props.text} - {props.color}
       </button> */}
-      <button onClick={props.onClick}>
+
+      {/* BT3 */}
+      {/* <button onClick={props.onClick}>
         {props.children}
-      </button>
+      </button> */}
+
+      {/* BT4-UseState */}
+      <button onClick={handleClick}>Click me! {x}</button>
     </>
   );
 };

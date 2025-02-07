@@ -5,10 +5,15 @@ function App() {
     <>
       {/* BT1 */}
       {/* <Button text="Đăng Nhập" color="blue" /> */}
+
       {/* BT2 */}
-      <List></List>
+      {/* <List></List> */}
+
       {/* BT3 */}
-      <Button onClick={() => alert("Button clicked!")}>Click Nguyen</Button>
+      {/* <Button onClick={() => alert("Button clicked!")}>Click Nguyen</Button> */}
+
+      {/* BT4 */}
+      <Button></Button>
     </>
   );
 }
