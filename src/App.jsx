@@ -1,9 +1,14 @@
-import Button from "./components/Button";
+import Button from "./components/Button/Button";
+import List from "./components/Lists/List";
 function App() {
   return (
     <>
-      <Button text="Đăng Nhập" color="blue" />
-      <Button text="Đăng Ký" color="red" />
+      {/* BT1 */}
+      {/* <Button text="Đăng Nhập" color="blue" /> */}
+      {/* BT2 */}
+      <List></List>
+      {/* BT3 */}
+      <Button onClick={() => alert("Button clicked!")}>Click Nguyen</Button>
     </>
   );
 }
