@@ -1,25 +1,14 @@
-import Button from "./components/Button/Button";
-import List from "./components/Lists/List";
-import Form from "./components/Form/Form";
-function App() {
+import Button from "./Button";
+import Form from "./Form";
+import List from "./List";
+import StudentManagement from "./StudentManagement";
+
+const App = () => {
   return (
     <>
-      {/* BT1 */}
-      {/* <Button text="Đăng Nhập" color="blue" /> */}
-
-      {/* BT2 */}
-      {/* <List></List> */}
-
-      {/* BT3 */}
-      {/* <Button onClick={() => alert("Button clicked!")}>Click Nguyen</Button> */}
-
-      {/* BT4 */}
-      {/* <Button></Button> */}
-
-      {/* BT4 Practice */}
-      <Form />
+      <StudentManagement />
     </>
-  );
+  )
 }
 
 export default App;
