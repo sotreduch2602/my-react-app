@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const StudentManagement = () => {
-  const [tmpIndex, setIndex] = useState(-1);
+  const [selectedIndex, setIndex] = useState(-1);
   //setStudents is used to update the students array
   const [students, setStudents] = useState([]);
   //setStudent is used to update the student object (name, age, gpa)
@@ -17,22 +17,25 @@ const StudentManagement = () => {
     setStudent({ name: "", age: "", gpa: "" });
   };
 
-  const handleEdit = (selected_student, index) => {
-    setIndex(index);
-    setStudent(selected_student);
-  };
-
   const handleUpdate = (e) => {
     e.preventDefault();
     const newStudents = students.map((item, i) => {
-      if (i === tmpIndex) {
+      if (i === selectedIndex) {
         return student;
       }
       return item;
     });
+    // console.log(student);
+
     setStudents(newStudents);
+    setStudent({ name: "", age: "", gpa: "" });
+    setIndex(-1);
   };
 
+  const handleEdit = (selected_student, index) => {
+    setIndex(index);
+    setStudent(selected_student);
+  };
   const handleDelete = (index) => {
     alert("Are you sure you want to delete " + students[index].name + "?");
     const newStudents = students.filter((item, i) => i !== index);
@@ -74,10 +77,18 @@ const StudentManagement = () => {
                 onChange={handleChange}
               />
             </div>
-            <button className="btn btn-success mr-2" onClick={handleAdd}>
+            <button
+              disabled={selectedIndex >= 0}
+              className="btn btn-success mr-2"
+              onClick={handleAdd}
+            >
               Add
             </button>
-            <button className="btn btn-info" onClick={handleUpdate}>
+            <button
+              disabled={selectedIndex < 0}
+              className="btn btn-info"
+              onClick={handleUpdate}
+            >
               Update
             </button>
           </form>
