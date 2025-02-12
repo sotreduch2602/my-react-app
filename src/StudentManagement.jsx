@@ -1,11 +1,13 @@
 import { useState } from "react";
 
 const StudentManagement = () => {
-  const [selectedIndex, setIndex] = useState(-1);
-  //setStudents is used to update the students array
-  const [students, setStudents] = useState([]);
-  //setStudent is used to update the student object (name, age, gpa)
+  const [students, setStudents] = useState([
+    { name: "John", age: 20, gpa: 3.0 },
+    { name: "Jane", age: 21, gpa: 3.2 },
+    { name: "Doe", age: 22, gpa: 3.5 },
+  ]);
   const [student, setStudent] = useState({});
+  const [index, setIndex] = useState(null);
 
   const handleChange = (e) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
@@ -14,89 +16,62 @@ const StudentManagement = () => {
   const handleAdd = (e) => {
     e.preventDefault();
     setStudents([...students, student]);
-    setStudent({ name: "", age: "", gpa: "" });
+    setStudent({});
   };
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    const newStudents = students.map((item, i) => {
-      if (i === selectedIndex) {
-        return student;
-      }
-      return item;
-    });
-    // console.log(student);
-
+  const handDelete = (index) => {
+    const newStudents = students.filter((student, i) => i !== index);
     setStudents(newStudents);
-    setStudent({ name: "", age: "", gpa: "" });
-    setIndex(-1);
   };
 
   const handleEdit = (selected_student, index) => {
-    setIndex(index);
     setStudent(selected_student);
   };
-  const handleDelete = (index) => {
-    alert("Are you sure you want to delete " + students[index].name + "?");
-    const newStudents = students.filter((item, i) => i !== index);
-    setStudents(newStudents);
-  };
-
   return (
-    <>
+    <div>
+      <h1 className="text-center">Student Management</h1>
       <div className="row">
         <div className="col-md-3">
           <form>
             <div className="form-group">
-              <label>Name:</label>
+              <label>Name</label>
               <input
-                type="text"
                 className="form-control"
+                type="text"
                 name="name"
-                value={student.name}
                 onChange={handleChange}
+                value={student.name || ""}
               />
             </div>
             <div className="form-group">
-              <label>Age:</label>
+              <label>Age</label>
               <input
-                type="text"
                 className="form-control"
+                type="text"
                 name="age"
-                value={student.age}
                 onChange={handleChange}
+                value={student.age || ""}
               />
             </div>
             <div className="form-group">
-              <label>GPA:</label>
+              <label>GPA</label>
               <input
-                type="text"
                 className="form-control"
+                type="text"
                 name="gpa"
-                value={student.gpa}
                 onChange={handleChange}
+                value={student.gpa || ""}
               />
             </div>
-            <button
-              disabled={selectedIndex >= 0}
-              className="btn btn-success mr-2"
-              onClick={handleAdd}
-            >
+            <button className="btn btn-primary mr-2" onClick={handleAdd}>
               Add
             </button>
-            <button
-              disabled={selectedIndex < 0}
-              className="btn btn-info"
-              onClick={handleUpdate}
-            >
-              Update
-            </button>
+            <button className="btn btn-secondary">Update</button>
           </form>
         </div>
-
         <div className="col-md-9">
-          <table className="table table-light table-striped">
-            <thead className="table-dark">
+          <table className="table table-dark table-striped table-hover">
+            <thead>
               <tr>
                 <th>Name</th>
                 <th>Age</th>
@@ -105,24 +80,23 @@ const StudentManagement = () => {
               </tr>
             </thead>
             <tbody>
-              {students.map((item, index) => (
+              {students.map((student, index) => (
                 <tr key={index}>
-                  <td>{item.name}</td>
-                  <td>{item.age}</td>
-                  <td>{item.gpa}</td>
+                  <td>{student.name}</td>
+                  <td>{student.age}</td>
+                  <td>{student.gpa}</td>
                   <td>
                     <button
-                      className="btn btn-warning mr-2"
-                      onClick={() => handleEdit(item, index)}
-                    >
-                      Edit
-                    </button>
-
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(index)}
+                      className="btn btn-danger mr-2"
+                      onClick={() => handDelete(index)}
                     >
                       Delete
+                    </button>
+                    <button
+                      className="btn btn-warning mr-2"
+                      onClick={() => handleEdit(student, index)}
+                    >
+                      Edit
                     </button>
                   </td>
                 </tr>
@@ -131,7 +105,7 @@ const StudentManagement = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
