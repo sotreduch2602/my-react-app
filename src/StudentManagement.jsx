@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const StudentManagement = () => {
   const [selectedIndex, setIndex] = useState(-1);
-  //setStudents is used to update the students array
   const [students, setStudents] = useState([]);
-  //setStudent is used to update the student object (name, age, gpa)
   const [student, setStudent] = useState({});
+
+  useEffect(() => {
+    fetch("students.json")
+      .then((response) => response.json())
+      .then((data) => setStudents(data));
+  }, []);
 
   const handleChange = (e) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
