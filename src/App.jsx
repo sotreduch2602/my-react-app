@@ -1,14 +1,12 @@
-import Button from "./Button";
-import Form from "./Form";
-import List from "./List";
-import StudentManagement from "./StudentManagement";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 const App = () => {
   return (
     <>
-      <StudentManagement />
+      <Button variant="danger">Click me</Button>
     </>
-  )
-}
+  );
+};
 
 export default App;
