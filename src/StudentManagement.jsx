@@ -57,7 +57,7 @@ const StudentManagement = () => {
                 type="text"
                 className="form-control"
                 name="name"
-                value={student.name}
+                value={student.name || ""}
                 onChange={handleChange}
               />
             </div>
@@ -67,7 +67,7 @@ const StudentManagement = () => {
                 type="text"
                 className="form-control"
                 name="age"
-                value={student.age}
+                value={student.age || ""}
                 onChange={handleChange}
               />
             </div>
@@ -77,7 +77,7 @@ const StudentManagement = () => {
                 type="text"
                 className="form-control"
                 name="gpa"
-                value={student.gpa}
+                value={student.gpa || ""}
                 onChange={handleChange}
               />
             </div>
