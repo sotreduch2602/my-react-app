@@ -1,10 +1,9 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+import StudentManagement from "./StudentManagement";
 
 const App = () => {
   return (
     <>
-      <Button variant="danger">Click me</Button>
+      <StudentManagement />
     </>
   );
 };
