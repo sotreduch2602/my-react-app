@@ -2,6 +2,8 @@ import { faMagento } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import {
   faArrowDown,
+  faCaretDown,
+  faCaretUp,
   faMagnifyingGlass,
   faPen,
   faPlus,
@@ -15,7 +17,6 @@ import {
   ButtonGroup,
   Col,
   Form,
-  FormControl,
   Image,
   InputGroup,
   Modal,
@@ -32,6 +33,16 @@ const ProductManagement = () => {
   const [AEShow, setAEShow] = useState(false);
   const [DetailShow, setDetailShow] = useState(false);
   const [SearchName, setSearchName] = useState("");
+  const [sortConfig, setSortConfig] = useState({
+    key: "",
+    direction: "none",
+  });
+
+  const sortIcon = new Map([
+    ["none", ""],
+    ["asc", faCaretUp],
+    ["desc", faCaretDown],
+  ]);
 
   useEffect(() => {
     fetch("products.json")
@@ -111,7 +122,7 @@ const ProductManagement = () => {
 
   //Searching
   const handleSearch = () => {
-    console.log("Original Products:", backupProducts);
+    // console.log("Original Products:", backupProducts);
 
     // Always filter from backupProducts to avoid losing dataede
     const foundProducts = backupProducts.filter((item) =>
@@ -119,6 +130,44 @@ const ProductManagement = () => {
     );
 
     setProducts(foundProducts);
+  };
+
+  //SortTable
+  const handleSort = (key) => {
+    // alert(`${sortConfig.key} == ${key} (${sortConfig.key == key})`);
+    let direction = "asc";
+    if (sortConfig.key == key) {
+      switch (sortConfig.direction) {
+        case "asc":
+          direction = "desc";
+          break;
+        case "desc":
+          direction = "none";
+          break;
+        case "none":
+          direction = "asc";
+          break;
+      }
+      // alert(`${sortConfig.direction} Switch to ${direction}`);
+    }
+
+    if (direction == "none") {
+      // alert("direction none");
+      setProducts(backupProducts);
+    } else {
+      let sortedProducts = [...backupProducts].sort((a, b) => {
+        if (a[key] > b[key]) {
+          return direction == "asc" ? -1 : 1;
+        } else {
+          return direction == "asc" ? 1 : -1;
+        }
+        return 0;
+      });
+      setProducts(sortedProducts);
+    }
+
+    setSortConfig({ key, direction });
+    // alert(`new ${sortConfig.direction}`);
   };
 
   return (
@@ -161,7 +210,9 @@ const ProductManagement = () => {
       {/* Add/Edit Modal */}
       <Modal centered size="lg" show={AEShow} onHide={handleAEClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{AE}</Modal.Title>
+          <Modal.Title>
+            {AE ? `Edit: ${product.title}` : "Add a new product"}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -277,19 +328,25 @@ const ProductManagement = () => {
         <thead className="table-dark">
           <tr className="text-center">
             <th>Image</th>
-            <th>
-              <span className="m-1">Name</span>
-              <FontAwesomeIcon icon={faArrowDown}></FontAwesomeIcon>
-            </th>
-            <th>Brand</th>
-            <th>
-              <span className="m-1">Price</span>
-              <FontAwesomeIcon
-                icon={faArrowDown}
-                onClick={() => console.log("click Arrow")}
-              ></FontAwesomeIcon>
-            </th>
-            <th>Stock</th>
+            {[
+              { header: "Name", key: "title" },
+              { header: "Brand", key: "brand" },
+              { header: "Price", key: "price" },
+              { header: "Stock", key: "stock" },
+            ].map((title) => (
+              <th key={title.key}>
+                <span className="m-2" onClick={() => handleSort(title.key)}>
+                  {title.header}
+                </span>
+                {title.key == sortConfig.key ? (
+                  <FontAwesomeIcon
+                    icon={sortIcon.get(sortConfig.direction)}
+                  ></FontAwesomeIcon>
+                ) : (
+                  <></>
+                )}
+              </th>
+            ))}
             <th>Action</th>
           </tr>
         </thead>
