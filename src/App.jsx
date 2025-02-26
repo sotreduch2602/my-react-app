@@ -1,24 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import Home from "./pages/home";
-import ProductDetail from "./pages/products/productDetail";
-import ProductList from "./pages/products/productlist";
-import ProductAdd from "./pages/products/ProductAdd";
-import MainLayout from "./layouts/MainLayout";
+import Navigation from "./layouts/navigation";
+import StudentsList from "./pages/students/StudentsList";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout />}>
+          <Route path="/" element={<Navigation />}>
             <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
-
-            <Route path="products">
-              <Route index element={<ProductList />} />
-              <Route path=":id/details" element={<ProductDetail />} />
-              <Route path="add" element={<ProductAdd />} />
+            <Route path="students">
+              <Route index element={<StudentsList />} />
+              <Route path="add" element={<></>} />
+              <Route path="edit/:id" element={<></>} />
             </Route>
           </Route>
         </Routes>
