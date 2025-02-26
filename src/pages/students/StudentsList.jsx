@@ -29,9 +29,19 @@ const StudentsList = () => {
       });
   }, []);
 
+  const DeleteStudent = (id) => {
+    const newStudents = Students.filter((std) => std.id !== id);
+    setStudents(newStudents);
+  };
+
   return (
     <>
-      <Table striped bordered>
+      <h1 className="text-center">Students List</h1>
+      <Table
+        striped
+        bordered
+        style={{ width: "80%", margin: "auto", boxShadow: "0 0 5px 1px #ddd" }}
+      >
         <thead className="table-dark">
           <tr>
             {["ID", "Name", "Age", "GPA", "Action"].map((title, index) => (
@@ -56,10 +66,15 @@ const StudentsList = () => {
                 >
                   <FontAwesomeIcon icon={faEye} />
                 </Button>
-                <Button className="mr-2" variant="warning">
+                <Button className="mr-2" variant="warning" onClick={() => {}}>
                   <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
                 </Button>
-                <Button variant="danger">
+                <Button
+                  variant="danger"
+                  onClick={() => {
+                    DeleteStudent(std.id);
+                  }}
+                >
                   <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                 </Button>
               </td>

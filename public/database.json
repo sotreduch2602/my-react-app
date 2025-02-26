@@ -1,0 +1,218 @@
+{
+    "students": [
+        {
+            "code": "S001",
+            "first_name": "Alice",
+            "last_name": "Johnson",
+            "math_grade": 85,
+            "physics_grade": 78,
+            "chemistry_grade": 88
+        },
+        {
+            "code": "S002",
+            "first_name": "Bob",
+            "last_name": "Smith",
+            "math_grade": 76,
+            "physics_grade": 85,
+            "chemistry_grade": 79
+        },
+        {
+            "code": "S003",
+            "first_name": "Charlie",
+            "last_name": "Brown",
+            "math_grade": 92,
+            "physics_grade": 90,
+            "chemistry_grade": 94
+        },
+        {
+            "code": "S004",
+            "first_name": "David",
+            "last_name": "Miller",
+            "math_grade": 65,
+            "physics_grade": 70,
+            "chemistry_grade": 68
+        },
+        {
+            "code": "S005",
+            "first_name": "Emma",
+            "last_name": "Wilson",
+            "math_grade": 88,
+            "physics_grade": 82,
+            "chemistry_grade": 90
+        },
+        {
+            "code": "S006",
+            "first_name": "Frank",
+            "last_name": "Anderson",
+            "math_grade": 74,
+            "physics_grade": 78,
+            "chemistry_grade": 80
+        },
+        {
+            "code": "S007",
+            "first_name": "Grace",
+            "last_name": "Thomas",
+            "math_grade": 95,
+            "physics_grade": 96,
+            "chemistry_grade": 98
+        },
+        {
+            "code": "S008",
+            "first_name": "Henry",
+            "last_name": "Moore",
+            "math_grade": 69,
+            "physics_grade": 72,
+            "chemistry_grade": 75
+        },
+        {
+            "code": "S009",
+            "first_name": "Isabella",
+            "last_name": "Taylor",
+            "math_grade": 82,
+            "physics_grade": 85,
+            "chemistry_grade": 87
+        },
+        {
+            "code": "S010",
+            "first_name": "Jack",
+            "last_name": "White",
+            "math_grade": 78,
+            "physics_grade": 80,
+            "chemistry_grade": 82
+        }
+    ],
+    "subjects": [
+        {
+            "code": "MATH101",
+            "name": "Mathematics",
+            "credits": 3,
+            "teacher": "John Adams"
+        },
+        {
+            "code": "PHYS101",
+            "name": "Physics",
+            "credits": 3,
+            "teacher": "Sarah Johnson"
+        },
+        {
+            "code": "CHEM101",
+            "name": "Chemistry",
+            "credits": 3,
+            "teacher": "Mark Davis"
+        },
+        {
+            "code": "ENG101",
+            "name": "English",
+            "credits": 2,
+            "teacher": "Emily Clark"
+        },
+        {
+            "code": "HIST101",
+            "name": "History",
+            "credits": 2,
+            "teacher": "Robert Wilson"
+        },
+        {
+            "code": "BIO101",
+            "name": "Biology",
+            "credits": 3,
+            "teacher": "Laura Martinez"
+        },
+        {
+            "code": "COMP101",
+            "name": "Computer Science",
+            "credits": 3,
+            "teacher": "James Anderson"
+        },
+        {
+            "code": "ART101",
+            "name": "Art",
+            "credits": 2,
+            "teacher": "Sophia Robinson"
+        },
+        {
+            "code": "GEO101",
+            "name": "Geography",
+            "credits": 2,
+            "teacher": "Michael Thomas"
+        },
+        {
+            "code": "PE101",
+            "name": "Physical Education",
+            "credits": 1,
+            "teacher": "David Brown"
+        }
+    ],
+    "teachers": [
+        {
+            "code": "T001",
+            "first_name": "John",
+            "last_name": "Adams",
+            "address": "123 Main St, Cityville",
+            "salary": 55000
+        },
+        {
+            "code": "T002",
+            "first_name": "Sarah",
+            "last_name": "Johnson",
+            "address": "456 Oak St, Townsville",
+            "salary": 54000
+        },
+        {
+            "code": "T003",
+            "first_name": "Mark",
+            "last_name": "Davis",
+            "address": "789 Pine St, Villagetown",
+            "salary": 56000
+        },
+        {
+            "code": "T004",
+            "first_name": "Emily",
+            "last_name": "Clark",
+            "address": "321 Maple St, Metrocity",
+            "salary": 52000
+        },
+        {
+            "code": "T005",
+            "first_name": "Robert",
+            "last_name": "Wilson",
+            "address": "654 Birch St, Uptown",
+            "salary": 53000
+        },
+        {
+            "code": "T006",
+            "first_name": "Laura",
+            "last_name": "Martinez",
+            "address": "987 Cedar St, Downtown",
+            "salary": 57000
+        },
+        {
+            "code": "T007",
+            "first_name": "James",
+            "last_name": "Anderson",
+            "address": "159 Spruce St, Riverside",
+            "salary": 58000
+        },
+        {
+            "code": "T008",
+            "first_name": "Sophia",
+            "last_name": "Robinson",
+            "address": "753 Elm St, Suburbia",
+            "salary": 51000
+        },
+        {
+            "code": "T009",
+            "first_name": "Michael",
+            "last_name": "Thomas",
+            "address": "852 Walnut St, Lakeview",
+            "salary": 54000
+        },
+        {
+            "code": "T010",
+            "first_name": "David",
+            "last_name": "Brown",
+            "address": "951 Redwood St, Hilltop",
+            "salary": 50000
+        }
+    ]
+}

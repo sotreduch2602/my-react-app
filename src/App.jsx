@@ -3,6 +3,7 @@ import Login from "./pages/login";
 import Home from "./pages/home";
 import Navigation from "./layouts/navigation";
 import StudentsList from "./pages/students/StudentsList";
+import AddStudent from "./pages/students/AddStudent";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="students">
               <Route index element={<StudentsList />} />
-              <Route path="add" element={<></>} />
+              <Route path="add" element={<AddStudent />} />
               <Route path="edit/:id" element={<></>} />
             </Route>
           </Route>
