@@ -2,11 +2,11 @@
   "students": [
     {
       "id": "S001",
-      "first_name": "Aliceaaaaa",
-      "last_name": "Johnsonkokoko",
-      "math_grade": 850,
-      "physics_grade": 780,
-      "chemistry_grade": 880
+      "first_name": "Alice",
+      "last_name": "Johnson",
+      "math_grade": 85,
+      "physics_grade": 78,
+      "chemistry_grade": 88
     },
     {
       "id": "S002",
