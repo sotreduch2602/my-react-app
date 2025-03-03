@@ -18,6 +18,10 @@ const StudentEdit = () => {
   const handleChange = (e) => {
     const updateValue =
       e.target.type === "number" ? parseInt(e.target.value) : e.target.value;
+    if (updateValue < 0 || updateValue > 100) {
+      alert("Grade must be between 0 and 100");
+      return;
+    }
     setStudent({ ...student, [e.target.name]: updateValue });
   };
 
