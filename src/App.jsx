@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import StudentsList from "./routes/StudentsList";
-import Home from "./routes/Home";
-import StudentAdd from "./routes/StudentAdd";
-import Error404 from "./routes/Error404";
-import StudentEdit from "./routes/StudentEdit";
-import StudentDetail from "./routes/StudentDetail";
+import ProductsList from "./pages/products/ProductsList";
+import Error404 from "./pages/Error404";
+import Home from "./pages/Home";
+import ProductDetail from "./pages/products/ProductDetail";
+import CartList from "./pages/cart/CartList";
 
 const App = () => {
   return (
@@ -12,12 +11,12 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="students">
-            <Route index element={<StudentsList />} />
-            <Route path="add" element={<StudentAdd />} />
-            <Route path="edit/:id" element={<StudentEdit />} />
-            <Route path="details/:id" element={<StudentDetail />} />
+          <Route path="products">
+            <Route index element={<ProductsList />} />
+            <Route path="detail/:id" element={<ProductDetail />} />
           </Route>
+
+          <Route path="cart" element={<CartList />} />
 
           <Route path="error">
             <Route path="404" element={<Error404 />} />
