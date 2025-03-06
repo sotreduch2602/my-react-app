@@ -14,7 +14,7 @@ const AddQuantityToCart = (itemAdd, quantityItem) => {
         axios.put(`cart/${item.id}`, item);
       } else {
         axios.post("cart", {
-          product_id: props.data.id,
+          product_id: itemAdd.id,
           quantity: quantityItem,
         });
       }

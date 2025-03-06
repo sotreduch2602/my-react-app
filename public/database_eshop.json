@@ -167,9 +167,24 @@
   ],
   "cart": [
     {
-      "id": "0369",
+      "id": "bb8c",
       "product_id": "fb9f",
-      "quantity": 5
+      "quantity": 16
+    },
+    {
+      "id": "3665",
+      "product_id": "4c39",
+      "quantity": 1
+    },
+    {
+      "id": "9af8",
+      "product_id": "add4",
+      "quantity": 1
+    },
+    {
+      "id": "f2ac",
+      "product_id": "5915",
+      "quantity": 2
     }
   ]
 }
