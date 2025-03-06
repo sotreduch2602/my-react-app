@@ -1,25 +1,13 @@
 import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import { Button, Card, CardFooter } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AddQuantityToCart from "../../functions/CartFunction";
 
 const ProductCard = (props) => {
   const handleAddToCart = () => {
-    console.log("add to cart");
-    const selectItem = props.list.filter((p) => p.sku === props.data.sku);
-
-    axios.post("http://localhost:3000/cart", {
-      sku: selectItem.sku,
-      quantity: 1,
-    });
-
-    if (selectItem) {
-      axios.put(`http://localhost:3000/cart/${selectItem.sku}`, {
-        quantity: selectItem.quantity + 1,
-      });
-    }
+    AddQuantityToCart(props.data, 1);
   };
 
   return (

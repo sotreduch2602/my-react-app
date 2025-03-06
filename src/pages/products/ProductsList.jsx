@@ -8,7 +8,7 @@ const ProductsList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get("products")
       .then((res) => setProducts(res.data));
   }, []);
 
@@ -18,7 +18,7 @@ const ProductsList = () => {
       <Row>
         {products.map((item, index) => (
           <Col key={index} md={3} className="mb-3">
-                <ProductCard key={item.id} data={item} list={products} />
+                <ProductCard key={item.id} data={item} />
           </Col>
         ))}
       </Row>

@@ -4,6 +4,9 @@ import Error404 from "./pages/Error404";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/products/ProductDetail";
 import CartList from "./pages/cart/CartList";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3000";
 
 const App = () => {
   return (
