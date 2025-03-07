@@ -1,0 +1,200 @@
+{
+  "categories": [
+    {
+      "name": "Sách giáo khoa",
+      "status": 1,
+      "id": "7580"
+    },
+    {
+      "name": "Sách tham khảo",
+      "status": 1,
+      "id": "2789"
+    },
+    {
+      "name": "Sách nước ngoài",
+      "status": 1,
+      "id": "fba9"
+    },
+    {
+      "name": "Báo & Tạp chí",
+      "status": 1,
+      "id": "e904"
+    },
+    {
+      "name": "Tiểu thuyết & Tự truyện",
+      "status": 1,
+      "id": "9bb5"
+    },
+    {
+      "name": "Khác",
+      "status": 1,
+      "id": "3589"
+    }
+  ],
+  "products": [
+    {
+      "sku": "WT3WPGZ9BTWB",
+      "name": "Tuổi trẻ đáng giá bao nhiêu",
+      "description": "Rosie Nguyễn",
+      "price": 45000,
+      "stock": 40,
+      "category_id": 5,
+      "image": "1.jpg",
+      "status": 1,
+      "id": "fb9f"
+    },
+    {
+      "sku": "98IOWWXWYVQ4",
+      "name": "Bứt phá điểm thi THPT Quốc gia môn Hóa học",
+      "description": "Nguyễn Đức Dũng",
+      "price": 51000,
+      "stock": 15,
+      "category_id": 2,
+      "image": "2.jpg",
+      "status": 1,
+      "id": "add4"
+    },
+    {
+      "sku": "21RH48HRFXX8",
+      "name": "Khéo ăn khéo nói sẽ có được thiên hạ",
+      "description": "Trác Nhã",
+      "price": 59000,
+      "stock": 29,
+      "category_id": 6,
+      "image": "3.jpg",
+      "status": 1,
+      "id": "5a63"
+    },
+    {
+      "sku": "QOXYSDE605P5",
+      "name": "Nhà giả kim",
+      "description": "Paulo Coelho",
+      "price": 53000,
+      "stock": 1,
+      "category_id": 3,
+      "image": "4.jpg",
+      "status": 1,
+      "id": "5915"
+    },
+    {
+      "sku": "6YI6TZ3JPO1L",
+      "name": "Để yên cho bác sĩ \"Hiền\"",
+      "description": "BS. Ngô Đức Hùng",
+      "price": 52000,
+      "stock": 36,
+      "category_id": 4,
+      "image": "5.jpg",
+      "status": 1,
+      "id": "f07a"
+    },
+    {
+      "sku": "YHB5JTSVRF8E",
+      "name": "Mình là cá, việc của mình là bơi",
+      "description": "Takeshi Furukawa",
+      "price": 57000,
+      "stock": 9,
+      "category_id": 3,
+      "image": "6.jpg",
+      "status": 1,
+      "id": "be28"
+    },
+    {
+      "sku": "LXL64LZAR5M2",
+      "name": "Đời ngắn đừng ngủ dài",
+      "description": "Robin Sharma",
+      "price": 42000,
+      "stock": 7,
+      "category_id": 3,
+      "image": "7.jpg",
+      "status": 1,
+      "id": "ec8f"
+    },
+    {
+      "sku": "C5V645HVP91W",
+      "name": "Bứt phá điểm thi THPT Quốc gia môn Toán",
+      "description": "ThS. Đỗ Đường Hiếu",
+      "price": 51000,
+      "stock": 0,
+      "category_id": 2,
+      "image": "8.jpg",
+      "status": 1,
+      "id": "4c39"
+    },
+    {
+      "sku": "4KLYT2UF7VB9",
+      "name": "Cà phê cùng Tony",
+      "description": "Tony Buổi Sáng",
+      "price": 62000,
+      "stock": 18,
+      "category_id": 6,
+      "image": "9.jpg",
+      "status": 1,
+      "id": "3f0d"
+    },
+    {
+      "sku": "KBD67VI81M80",
+      "name": "Em sẽ đến cùng cơn mưa",
+      "description": "Ichikawa Takuji",
+      "price": 56000,
+      "stock": 64,
+      "category_id": 5,
+      "image": "10.jpg",
+      "status": 1,
+      "id": "77a0"
+    },
+    {
+      "sku": "3RISEFVDWYVF",
+      "name": "Quẳng gánh lo đi mà vui sống",
+      "description": "Dale Carnegie",
+      "price": 45000,
+      "stock": 120,
+      "category_id": 6,
+      "image": "11.jpg",
+      "status": 1,
+      "id": "fb44"
+    },
+    {
+      "sku": "VIAZXR3Y24IY",
+      "name": "Mình nói gì khi nói về hạnh phúc?",
+      "description": "Rosie Nguyễn",
+      "price": 36000,
+      "stock": 46,
+      "category_id": 5,
+      "image": "12.jpg",
+      "status": 1,
+      "id": "4922"
+    }
+  ],
+  "cart": [
+    {
+      "id": "ca95",
+      "product_id": "fb9f",
+      "quantity": 6
+    },
+    {
+      "id": "a04b",
+      "product_id": "add4",
+      "quantity": 1
+    },
+    {
+      "id": "9ef0",
+      "product_id": "f07a",
+      "quantity": 1
+    },
+    {
+      "id": "1be6",
+      "product_id": "77a0",
+      "quantity": 1
+    },
+    {
+      "id": "325c",
+      "product_id": "be28",
+      "quantity": 1
+    },
+    {
+      "id": "2afe",
+      "product_id": "ec8f",
+      "quantity": 2
+    }
+  ]
+}
