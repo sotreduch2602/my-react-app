@@ -2,14 +2,18 @@ import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Card, CardFooter } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import AddQuantityToCart from "../../functions/CartFunction";
+import { useEffect } from "react";
+import axios from "axios";
 
 const ProductCard = (props) => {
   let navigate = useNavigate();
+  const { cartQuantity, setCartQuantity } = useOutletContext();
 
   const handleAddToCart = () => {
     AddQuantityToCart(props.data, 1);
+    setCartQuantity(cartQuantity + 1);
     navigate("/cart");
   };
 
