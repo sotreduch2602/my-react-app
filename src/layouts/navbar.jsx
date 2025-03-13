@@ -16,9 +16,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useLayout } from "../hooks/LayoutContext";
 
 const NavbarMenu = () => {
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const { cartQuantity, setCartQuantity } = useLayout();
 
   useEffect(() => {
     axios.get("cart").then((res) => {
@@ -56,7 +57,7 @@ const NavbarMenu = () => {
           </Button>
         </Navbar.Collapse>
       </Navbar>
-      <Outlet context={{ cartQuantity, setCartQuantity }} />
+      <Outlet />
     </>
   );
 };

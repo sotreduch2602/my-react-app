@@ -4,17 +4,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Card, CardFooter } from "react-bootstrap";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import AddQuantityToCart from "../../functions/CartFunction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useLayout } from "../../hooks/LayoutContext";
 
 const ProductCard = (props) => {
   let navigate = useNavigate();
-  const { cartQuantity, setCartQuantity } = useOutletContext();
+  const [cart, setCart] = useState([]);
+  const { cartQuantity, setCartQuantity } = useLayout();
+
+  useEffect(() => {
+    axios.get("cart").then((res) => setCart(res.data));
+  }, [cartQuantity]);
 
   const handleAddToCart = () => {
-    AddQuantityToCart(props.data, 1);
+    AddQuantityToCart(cart, props.data, 1);
     setCartQuantity(cartQuantity + 1);
-    navigate("/cart");
+    // navigate("/cart");
   };
 
   return (
