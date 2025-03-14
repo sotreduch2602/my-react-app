@@ -2,7 +2,7 @@ import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, ButtonGroup, Table } from "react-bootstrap";
+import { Button, ButtonGroup, Container, Table } from "react-bootstrap";
 import { useLayout } from "../../hooks/LayoutContext";
 
 const CartList = () => {
@@ -62,7 +62,7 @@ const CartList = () => {
   };
 
   return (
-    <>
+    <Container>
       <h1>Cart Lists</h1>
       {cartItems.length === 0 ? (
         <span>Your cart is empty</span>
@@ -95,11 +95,17 @@ const CartList = () => {
                 <td>{getProduct(products, item.product_id)?.name}</td>
                 <td>{getProduct(products, item.product_id)?.price}</td>
                 <td>
-                  <Button onClick={() => HandleUpdateQuantity(item.id, -1)}>
+                  <Button
+                    className="mr-2"
+                    onClick={() => HandleUpdateQuantity(item.id, -1)}
+                  >
                     <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon>
                   </Button>
                   {item.quantity}
-                  <Button onClick={() => HandleUpdateQuantity(item.id, 1)}>
+                  <Button
+                    className="ml-2"
+                    onClick={() => HandleUpdateQuantity(item.id, 1)}
+                  >
                     <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                   </Button>
                 </td>
@@ -130,7 +136,7 @@ const CartList = () => {
           </tbody>
         </Table>
       )}
-    </>
+    </Container>
   );
 };
 
