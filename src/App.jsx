@@ -7,6 +7,8 @@ import CartList from "./pages/cart/CartList";
 import axios from "axios";
 import Navbar from "./layouts/navbar";
 import { LayoutProvider } from "./hooks/LayoutContext";
+import Login from "./pages/user/Login";
+import RoleBasedRoute from "./components/RoleBasedRoute";
 axios.defaults.baseURL = "http://localhost:3000";
 
 const App = () => {
@@ -22,7 +24,19 @@ const App = () => {
                 <Route path="detail/:id" element={<ProductDetail />} />
               </Route>
 
-              <Route path="cart" element={<CartList />} />
+              <Route
+                element={
+                  <RoleBasedRoute
+                    isAuthenticated={true}
+                    userRole="admi"
+                    requiredRole="admin"
+                  />
+                }
+              >
+                <Route path="cart" element={<CartList />} />
+              </Route>
+
+              <Route path="login" element={<Login />} />
 
               <Route path="error">
                 <Route path="404" element={<Error404 />} />
