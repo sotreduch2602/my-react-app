@@ -8,42 +8,50 @@ import axios from "axios";
 import Navbar from "./layouts/navbar";
 import { LayoutProvider } from "./hooks/LayoutContext";
 import Login from "./pages/user/Login";
-import RoleBasedRoute from "./components/RoleBasedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./hooks/AuthContext";
+import SearchProducts from "./pages/products/SearchProducts";
+import UserProfile from "./pages/user/UserProfile";
+import Categories from "./pages/categories/Categories";
 axios.defaults.baseURL = "http://localhost:3000";
 
 const App = () => {
   return (
     <>
       <LayoutProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Navbar />}>
-              <Route index element={<Home />} />
-              <Route path="products">
-                <Route index element={<ProductsList />} />
-                <Route path="detail/:id" element={<ProductDetail />} />
-              </Route>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Navbar />}>
+                <Route index element={<Home />} />
+                <Route path="products">
+                  <Route index element={<ProductsList />} />
+                  <Route path="detail/:id" element={<ProductDetail />} />
+                  <Route path="categories/:id" element={<Categories />} />
+                  <Route path="search" element={<SearchProducts />} />
+                </Route>
 
-              <Route
-                element={
-                  <RoleBasedRoute
-                    isAuthenticated={true}
-                    userRole="admi"
-                    requiredRole="admin"
-                  />
-                }
-              >
-                <Route path="cart" element={<CartList />} />
-              </Route>
+                <Route element={<ProtectedRoute />}>
+                  <Route path="cart" element={<CartList />} />
+                </Route>
 
-              <Route path="login" element={<Login />} />
+                <Route path="login" element={<Login />} />
+                <Route path="profile" element={<UserProfile />} />
 
-              <Route path="error">
-                <Route path="404" element={<Error404 />} />
+                <Route path="error">
+                  <Route path="404" element={<Error404 />} />
+                </Route>
+
+                <Route
+                  path="admin"
+                  element={<ProtectedRoute requiredRole="admin" />}
+                >
+                  <Route index element={<Home />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
-        </BrowserRouter>
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
       </LayoutProvider>
     </>
   );

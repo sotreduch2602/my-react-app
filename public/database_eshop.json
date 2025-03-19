@@ -3,32 +3,32 @@
     {
       "name": "Sách giáo khoa",
       "status": 1,
-      "id": "7580"
+      "id": 1
     },
     {
       "name": "Sách tham khảo",
       "status": 1,
-      "id": "2789"
+      "id": 2
     },
     {
       "name": "Sách nước ngoài",
       "status": 1,
-      "id": "fba9"
+      "id": 3
     },
     {
       "name": "Báo & Tạp chí",
       "status": 1,
-      "id": "e904"
+      "id": 4
     },
     {
       "name": "Tiểu thuyết & Tự truyện",
       "status": 1,
-      "id": "9bb5"
+      "id": 5
     },
     {
       "name": "Khác",
       "status": 1,
-      "id": "3589"
+      "id": 6
     }
   ],
   "products": [
@@ -167,9 +167,29 @@
   ],
   "cart": [
     {
-      "id": "32eb",
+      "id": "d8af",
       "product_id": "fb9f",
       "quantity": 5
+    }
+  ],
+  "user": [
+    {
+      "id": "1111",
+      "username": "admin",
+      "password": "123123",
+      "email": "nguyen2602@gmail.com",
+      "address": "123 LTQ Q11 P13",
+      "phone_number": "123456789",
+      "account_type": "admin"
+    },
+    {
+      "id": "2222",
+      "username": "member",
+      "password": "123123",
+      "email": "van2602@gmail.com",
+      "address": "456 LTQ Q11 P13",
+      "phone_number": "123456789",
+      "account_type": "member"
     }
   ]
 }

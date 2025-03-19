@@ -9,7 +9,6 @@ import axios from "axios";
 import { useLayout } from "../../hooks/LayoutContext";
 
 const ProductCard = (props) => {
-  let navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const { cartQuantity, setCartQuantity } = useLayout();
 
@@ -20,7 +19,6 @@ const ProductCard = (props) => {
   const handleAddToCart = () => {
     AddQuantityToCart(cart, props.data, 1);
     setCartQuantity(cartQuantity + 1);
-    // navigate("/cart");
   };
 
   return (

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import AddQuantityToCart from "../../functions/CartFunction";
+import { useAuth } from "../../hooks/AuthContext";
 
 const ProductDetail = () => {
   let { id } = useParams();
@@ -10,6 +11,7 @@ const ProductDetail = () => {
 
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(0);
+  const { user } = useAuth();
 
   useEffect(() => {
     axios.get(`products/${id}`).then((res) => setProduct(res.data));
@@ -50,24 +52,26 @@ const ProductDetail = () => {
                 <p>{product.description}</p>
                 <h4>{product.price}</h4>
 
-                <Form>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Quantity</Form.Label>
-                    <Form.Control
-                      type="number"
-                      placeholder="Enter quantity"
-                      value={quantity}
-                      onChange={handleQuantityChange}
-                    />
-                  </Form.Group>
+                {user && (
+                  <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Label>Quantity</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter quantity"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                      />
+                    </Form.Group>
 
-                  <button
-                    className="btn btn-primary"
-                    onClick={handleAddMultiToCart}
-                  >
-                    Add to Cart
-                  </button>
-                </Form>
+                    <button
+                      className="btn btn-primary"
+                      onClick={handleAddMultiToCart}
+                    >
+                      Add to Cart
+                    </button>
+                  </Form>
+                )}
               </Col>
             </>
           )}
