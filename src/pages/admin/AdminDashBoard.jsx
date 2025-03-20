@@ -1,25 +1,22 @@
+import { Tab, Tabs } from "react-bootstrap";
+import ProductManagement from "./ProductManagement";
+import UserManagement from "./UserManagement";
+
 const AdminDashBoard = () => {
   return (
     <div>
       <h2 className="text-center">DashBoard</h2>
-      <div>
-        <Tabs
-          defaultActiveKey="profile"
-          id="fill-tab-example"
-          className="mb-3"
-          fill
-        >
-          <Tab eventKey="home" title="Home">
-            Tab content for Home
+      <div className="shadow">
+        <Tabs defaultActiveKey="products" transition={false} className="mb-3">
+          <Tab eventKey="products" title="Products">
+            <div className="m-2">
+              <ProductManagement />
+            </div>
           </Tab>
-          <Tab eventKey="profile" title="Profile">
-            Tab content for Profile
-          </Tab>
-          <Tab eventKey="longer-tab" title="Loooonger Tab">
-            Tab content for Loooonger Tab
-          </Tab>
-          <Tab eventKey="contact" title="Contact" disabled>
-            Tab content for Contact
+          <Tab eventKey="users" title="Users">
+            <div className="m-2">
+              <UserManagement />
+            </div>
           </Tab>
         </Tabs>
       </div>

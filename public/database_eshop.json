@@ -3,44 +3,41 @@
     {
       "name": "Sách giáo khoa",
       "status": 1,
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Sách tham khảo",
       "status": 1,
-      "id": 2
+      "id": "2"
     },
     {
       "name": "Sách nước ngoài",
       "status": 1,
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Báo & Tạp chí",
       "status": 1,
-      "id": 4
+      "id": "4"
     },
     {
       "name": "Tiểu thuyết & Tự truyện",
       "status": 1,
-      "id": 5
+      "id": "5"
     },
     {
       "name": "Khác",
       "status": 1,
-      "id": 6
+      "id": "6"
     }
   ],
   "products": [
     {
-      "sku": "WT3WPGZ9BTWB",
-      "name": "Tuổi trẻ đáng giá bao nhiêu",
+      "name": "Tuổi trẻ đáng giá bao nhiêu 1",
+      "price": "12000",
       "description": "Rosie Nguyễn",
-      "price": 45000,
-      "stock": 40,
-      "category_id": 5,
       "image": "1.jpg",
-      "status": 1,
+      "category_id": 5,
       "id": "fb9f"
     },
     {
@@ -184,6 +181,15 @@
       "address": "456 LTQ Q11 P13",
       "phone_number": "123456789",
       "account_type": "member"
+    },
+    {
+      "id": "78f3",
+      "username": "asd",
+      "email": "asd@gmail.com",
+      "password": "asd",
+      "address": "asd",
+      "phone_number": "123",
+      "account_type": "admin"
     }
   ]
 }

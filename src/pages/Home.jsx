@@ -11,7 +11,7 @@ const Home = () => {
       <Button className="mr-2" as={Link} to={"/products"}>
         Products List
       </Button>
-      {user.role === "admin" && <Button as={Link} to={"/admin"}>Admin DashBoard</Button>}
+      {user?.role === "admin" && <Button as={Link} to={"/admin"}>Admin DashBoard</Button>}
     </div>
   );
 };

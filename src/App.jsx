@@ -43,6 +43,8 @@ const App = () => {
                   <Route path="404" element={<Error404 />} />
                 </Route>
 
+                <Route path="admin1" element={<AdminDashBoard />} />
+
                 <Route
                   path="admin"
                   element={<ProtectedRoute requiredRole="admin" />}
