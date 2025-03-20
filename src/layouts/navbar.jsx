@@ -76,7 +76,7 @@ const NavbarMenu = () => {
               Log in
             </Link>
           ) : (
-            <Link className="mr-2 py-2" onClick={logout}>
+            <Link className="mr-2 py-2" onClick={logout} to={"/"}>
               Log out
             </Link>
           )}
@@ -92,14 +92,12 @@ const NavbarMenu = () => {
             </div>
           )}
 
-          {user && (
-            <div className="mr-2 py-2">
-              <Button as={Link} to={"/cart"}>
-                <FontAwesomeIcon icon={faShoppingCart} />
-                <Badge bg="secondary">{cartQuantity}</Badge>
-              </Button>
-            </div>
-          )}
+          <div className="mr-2 py-2">
+            <Button as={Link} to={"/cart"}>
+              <FontAwesomeIcon icon={faShoppingCart} />
+              <Badge bg="secondary">{cartQuantity}</Badge>
+            </Button>
+          </div>
         </Navbar.Collapse>
       </Navbar>
       <Outlet />

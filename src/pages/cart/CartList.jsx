@@ -2,13 +2,20 @@ import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, ButtonGroup, Container, Table } from "react-bootstrap";
+import {
+  Button,
+  ButtonGroup,
+  Container,
+  FormCheck,
+  Table,
+} from "react-bootstrap";
 import { useLayout } from "../../hooks/LayoutContext";
 
 const CartList = () => {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const { cartQuantity, setCartQuantity } = useLayout();
+  const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,10 +48,11 @@ const CartList = () => {
   const handleDeleteCartItem = async (id) => {
     try {
       await axios.delete(`cart/${id}`);
+      const selectedItem = cartItems.find((cartItem) => cartItem.id == id);
+      setCartQuantity(cartQuantity - selectedItem.quantity);
       setCartItems((prevItems) =>
         prevItems.filter((cartItem) => cartItem.id != id)
       );
-      setCartQuantity(cartQuantity - 1);
     } catch (error) {
       console.error("Error deleting item:", error);
       alert("Failed to delete item from cart");
@@ -61,6 +69,46 @@ const CartList = () => {
     setCartQuantity((prevCartQuantity) => (prevCartQuantity += value));
   };
 
+  const handleSelectItem = (itemId) => {
+    setSelectedItems((prev) => {
+      if (prev.includes(itemId)) {
+        return prev.filter((id) => id !== itemId);
+      }
+      return [...prev, itemId];
+    });
+  };
+
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      setSelectedItems(cartItems.map((item) => item.id));
+    } else {
+      setSelectedItems([]);
+    }
+  };
+
+  const handleDeleteSelected = async () => {
+    try {
+      await Promise.all(selectedItems.map((id) => axios.delete(`cart/${id}`)));
+
+      const deletedItems = cartItems.filter((item) =>
+        selectedItems.includes(item.id)
+      );
+      const totalQuantityToRemove = deletedItems.reduce(
+        (sum, item) => sum + item.quantity,
+        0
+      );
+
+      setCartQuantity((prev) => prev - totalQuantityToRemove);
+      setCartItems((prev) =>
+        prev.filter((item) => !selectedItems.includes(item.id))
+      );
+      setSelectedItems([]);
+    } catch (error) {
+      console.error("Error deleting items:", error);
+      alert("Failed to delete selected items");
+    }
+  };
+
   return (
     <Container>
       <h1>Cart Lists</h1>
@@ -70,6 +118,13 @@ const CartList = () => {
         <Table striped bordered>
           <thead className="table-dark">
             <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  onChange={handleSelectAll}
+                  checked={selectedItems.length === cartItems.length}
+                />
+              </th>
               <th>No.</th>
               <th>Image</th>
               <th>Name</th>
@@ -82,6 +137,13 @@ const CartList = () => {
           <tbody>
             {cartItems.map((item, index) => (
               <tr key={item.id}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedItems.includes(item.id)}
+                    onChange={() => handleSelectItem(item.id)}
+                  />
+                </td>
                 <td>{index + 1}</td>
                 <td>
                   <img
@@ -126,7 +188,7 @@ const CartList = () => {
             ))}
             <tr>
               <td
-                colSpan={5}
+                colSpan={6}
                 className="table-dark text-center font-weight-bold"
               >
                 Total
@@ -135,6 +197,17 @@ const CartList = () => {
             </tr>
           </tbody>
         </Table>
+      )}
+
+      {selectedItems.length > 0 && (
+        <Button
+          variant="danger"
+          size="sm"
+          className="ms-2"
+          onClick={handleDeleteSelected}
+        >
+          Delete Selected
+        </Button>
       )}
     </Container>
   );

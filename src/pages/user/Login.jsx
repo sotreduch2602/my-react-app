@@ -31,11 +31,13 @@ const Login = () => {
           role: foundUser.account_type,
         });
 
-        if (foundUser.account_type == "admin") {
-          navigate("/admin");
-        } else {
-          navigate("/");
-        }
+        // if (foundUser.account_type == "admin") {
+        //   navigate("/admin");
+        // } else {
+        //   navigate("/");
+        // }
+
+        navigate("/");
       } else {
         console.log("login fail");
       }
@@ -64,11 +66,11 @@ const Login = () => {
     <Container>
       <Form>
         <Form.Group className="mb-3">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
             name="username"
-            placeholder="Enter email"
+            placeholder="Enter Your Username"
             onChange={handleChange}
           />
         </Form.Group>
@@ -78,6 +80,7 @@ const Login = () => {
           <Form.Control
             type="password"
             name="password"
+            placeholder="Enter Your Password"
             onChange={handleChange}
           />
         </Form.Group>

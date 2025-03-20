@@ -165,20 +165,14 @@
       "id": "4922"
     }
   ],
-  "cart": [
-    {
-      "id": "d8af",
-      "product_id": "fb9f",
-      "quantity": 5
-    }
-  ],
+  "cart": [],
   "user": [
     {
       "id": "1111",
       "username": "admin",
       "password": "123123",
-      "email": "nguyen2602@gmail.com",
-      "address": "123 LTQ Q11 P13",
+      "email": "admin2602@gmail.com",
+      "address": "789 LTQ Q11 P13",
       "phone_number": "123456789",
       "account_type": "admin"
     },

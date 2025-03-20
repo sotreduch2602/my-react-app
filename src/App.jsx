@@ -13,6 +13,7 @@ import { AuthProvider } from "./hooks/AuthContext";
 import SearchProducts from "./pages/products/SearchProducts";
 import UserProfile from "./pages/user/UserProfile";
 import Categories from "./pages/categories/Categories";
+import AdminDashBoard from "./pages/admin/AdminDashBoard";
 axios.defaults.baseURL = "http://localhost:3000";
 
 const App = () => {
@@ -31,12 +32,12 @@ const App = () => {
                   <Route path="search" element={<SearchProducts />} />
                 </Route>
 
+                <Route path="login" element={<Login />} />
+
                 <Route element={<ProtectedRoute />}>
                   <Route path="cart" element={<CartList />} />
+                  <Route path="profile" element={<UserProfile />} />
                 </Route>
-
-                <Route path="login" element={<Login />} />
-                <Route path="profile" element={<UserProfile />} />
 
                 <Route path="error">
                   <Route path="404" element={<Error404 />} />
@@ -46,7 +47,7 @@ const App = () => {
                   path="admin"
                   element={<ProtectedRoute requiredRole="admin" />}
                 >
-                  <Route index element={<Home />} />
+                  <Route index element={<AdminDashBoard />} />
                 </Route>
               </Route>
             </Routes>

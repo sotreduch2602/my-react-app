@@ -10,7 +10,7 @@ const ProtectedRoute = ({ requiredRole }) => {
     return <Navigate to="/login" replace />;
   }
 
-  if (user.role != requiredRole) {
+  if (user.role !== requiredRole && requiredRole?.trim()) {
     return <Navigate to="/error/404" replace />;
   }
 

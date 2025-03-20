@@ -10,7 +10,7 @@ const Categories = () => {
 
   useEffect(() => {
     axios.get("products").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setProducts(res.data.filter((product) => product.category_id == id));
     });
   }, [id]);
